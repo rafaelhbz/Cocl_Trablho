@@ -8,7 +8,7 @@ Created on Wed Oct 16 10:10:36 2019
 import random
 import math
 
-numero_baralho = int(input("Digite quantos baralhos serão utilizados: "))
+numero_baralho = int(input("Quantos baralhos serão utilizados ? "))
 
 baralho_jogado = {}
 
@@ -152,8 +152,8 @@ def retirar_carta(jogador, dinheiro, numero_baralho):
     else:
         black_jack = False
     if black_jack == False:
-        print(nome,"Você já conseguiu {0} pontos, tem certeza que continuar? ".format(pontuação_jogador))
-        deseja_retirar = str(input("Você quer retirar mais uma carta? "))
+        print(nome,"Você já conseguiu {0} pontos, quer continuar ? ".format(pontuação_jogador))
+        deseja_retirar = str(input("Você quer retirar mais uma carta ? "))
         
         while deseja_retirar == "Sim" or deseja_retirar == "sim":
             sorteio_local = str(random.choice(list(baralho.keys())))
@@ -296,7 +296,8 @@ def retirar_carta(jogador, dinheiro, numero_baralho):
                     pontuação_jogador = pontuação_jogador + 10
             lista_numeros = [numero_As, numero_Dois, numero_Tres, numero_Quatro, numero_Cinco, numero_Seis, numero_Sete, numero_Oito, numero_Nove, numero_Dez, numero_Valete, numero_Dama, numero_Rei]
             print(nome,"Você está fazendo {0} pontos".format(pontuação_jogador))
-            print(lista_numeros)
+           # Parametro de verificacao
+           # print(lista_numeros)
             
             if pontuação_jogador == 21:
                 dinheiro_jogador = dinheiro_jogador + 1.5 * dinheiro_jogador
@@ -307,9 +308,10 @@ def retirar_carta(jogador, dinheiro, numero_baralho):
             else:
                 deseja_retirar = str(input("Você quer retirar mais uma carta? "))
         else:
-            print("Ok, você decidiu parar aqui. Então vamos analisar seus pontos!")
+            print("Ok, você decidiu parar aqui.Vamos analisar seus pontos!")
     lista_numeros = [numero_As, numero_Dois, numero_Tres, numero_Quatro, numero_Cinco, numero_Seis, numero_Sete, numero_Oito, numero_Nove, numero_Dez, numero_Valete, numero_Dama, numero_Rei]
-    print(lista_numeros)
+   # parametro de verificacao
+   # print(lista_numeros)
     print(nome,"Você fez {0} pontos".format(pontuação_jogador))
     return lista_numeros, pontuação_jogador
 
@@ -554,51 +556,79 @@ def dealer(dinheiro, numero_baralho):
     else:
         dinheiro_local = 0
         frase = "Jogador, você perdeu"
+        print('                                         *          ')
+        print('                                       *   *        ')
+        print(' *       *    * * * *     * * * *     * * * *       ')
+        print('  *     *     *     *     *           *             ')
+        print('   *   *      *     *     *           * * * *       ')
+        print('    * *       *     *     *           *             ')
+        print('     *        * * * *     * * * *     * * * *      ' )
+        print('')
+        print('')
+        print('  * * * *     * * * *      * * * *    * * *     * * * *   *     *      ')
+        print('  *     *     *            *     *    *     *   *         *     *      ')
+        print('  * * * *     * * * *      * * * *    *     *   * * * *   *     *      ')
+        print('  *           *            * *        *     *   *         *     *      ')
+        print('  *           * * * *      *   *      * * *     * * * *   * * * *      ')
+        print('')
+        print('')
+        print(' *   .        * * * * * * * *                             ')
+        print('  *  *     *                  *      \                    ')
+        print('* .  * *   *     *      *     *     -- **********/        ')
+        print('  * . * ** *   * * *  * * *   *     -- ************       ')
+        print('*  . * *   *     *      *     *      /          ****      ')
+        print('  . *      *                  *                  ****     ')
+        print('*  .       *       *****      *                           ')
+        print('  *        *       *   *      *                           ')
+        print(' * * .     *        ***       *                           ')
+        print('  *         * * * * * * * * *                             ')    
+        
         
         
         
             
-    lista_numeros = [numero_As, numero_Dois, numero_Tres, numero_Quatro, numero_Cinco, numero_Seis, numero_Sete, numero_Oito, numero_Nove, numero_Dez, numero_Valete, numero_Dama, numero_Rei]
+    #lista_numeros = [numero_As, numero_Dois, numero_Tres, numero_Quatro, numero_Cinco, numero_Seis, numero_Sete, numero_Oito, numero_Nove, numero_Dez, numero_Valete, numero_Dama, numero_Rei]
     #print(lista_numeros)
     #print(pontuação)
     #print(dinheiro)
-    return lista_numeros, pontuação, dinheiro_local, frase
+    return pontuação, dinheiro_local, frase
 
 
-numero_jogador = int(input("Digite quantos jogadores irão jogar o BlackJack: "))
+
+numero_jogador = int(input("Quantos jogadores irão jogar o BlackJack ? "))
 
 if numero_jogador >= 1:
-    jogador_1 = str(input("Qual o nome do jogador: "))
-    dinheiro_1 = int(input("Digite quanto você quer apostar: "))
+    jogador_1 = str(input("Qual o nome do jogador ? "))
+    dinheiro_1 = int(input("Quanto você quer apostar ? "))
     print(retirar_carta(jogador_1, dinheiro_1, numero_baralho))
     print(dealer(dinheiro_1, numero_baralho))
     if numero_jogador >= 2:
-        jogador_2 = str(input("Qual o nome do jogador: "))
-        dinheiro_2 = int(input("Digite quanto você quer apostar: "))
+        jogador_2 = str(input("Qual o nome do jogador ? "))
+        dinheiro_2 = int(input("Quanto você quer apostar ? "))
         print(retirar_carta(jogador_2, dinheiro_2, numero_baralho))
         print(dealer(dinheiro_2, numero_baralho))
         if numero_jogador >= 3:
-            jogador_3 = str(input("Qual o nome do jogador: "))
-            dinheiro_3 = int(input("Digite quanto você quer apostar: "))
+            jogador_3 = str(input("Qual o nome do jogador ? "))
+            dinheiro_3 = int(input("Quanto você quer apostar ? "))
             print(retirar_carta(jogador_3, dinheiro_3, numero_baralho))
             print(dealer(dinheiro_3, numero_baralho))
             if numero_jogador >= 4:
-                jogador_4 = str(input("Qual o nome do jogador: "))
-                dinheiro_4 = int(input("Digite quanto você quer apostar: "))
+                jogador_4 = str(input("Qual o nome do jogador ? "))
+                dinheiro_4 = int(input("Quanto você quer apostar ? "))
                 print(retirar_carta(jogador_4, dinheiro_4, numero_baralho))
                 print(dealer(dinheiro_4, numero_baralho))
                 if numero_jogador >= 5:
-                    jogador_5 = str(input("Qual o nome do jogador: "))
-                    dinheiro_5 = int(input("Digite quanto você quer apostar: "))
+                    jogador_5 = str(input("Qual o nome do jogador ? "))
+                    dinheiro_5 = int(input("Quanto você quer apostar ? "))
                     print(retirar_carta(jogador_5, dinheiro_5, numero_baralho))
                     print(dealer(dinheiro_5, numero_baralho))
                     if numero_jogador >= 6:
-                        jogador_6 = str(input("Qual o nome do jogador: "))
-                        dinheiro_6 = int(input("Digite quanto você quer apostar: "))
+                        jogador_6 = str(input("Qual o nome do jogador ? "))
+                        dinheiro_6 = int(input("Quanto você quer apostarm ? "))
                         print(retirar_carta(jogador_6, dinheiro_6, numero_baralho))
                         print(dealer(dinheiro_6, numero_baralho))
                         if numero_jogador >= 4:
-                            jogador_7 = str(input("Qual o nome do jogador: "))
-                            dinheiro_7 = int(input("Digite quanto você quer apostar: "))
+                            jogador_7 = str(input("Qual o nome do jogador ? "))
+                            dinheiro_7 = int(input("Quanto você quer apostar ? "))
                             print(retirar_carta(jogador_7, dinheiro_7, numero_baralho))
                             print(dealer(dinheiro_7, numero_baralho))
